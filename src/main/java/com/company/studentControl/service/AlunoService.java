@@ -27,5 +27,9 @@ public class AlunoService {
 			throw new ResourceNotFoundException(e.getMessage());
 		}
 	}
+	
+	public Aluno insert(Aluno aluno) {
+		return repo.save(aluno);
+	}
 
 }
