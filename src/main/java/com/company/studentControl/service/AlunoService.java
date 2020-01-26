@@ -31,5 +31,12 @@ public class AlunoService {
 	public Aluno insert(Aluno aluno) {
 		return repo.save(aluno);
 	}
+	
+	public Aluno update(Integer id, Aluno upAluno) {
+		Aluno aluno = findById(id);
+		aluno.setNome(upAluno.getNome());
+		aluno.setIdade(upAluno.getIdade());
+		return repo.save(aluno);
+	}
 
 }
