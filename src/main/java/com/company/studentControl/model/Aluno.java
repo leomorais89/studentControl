@@ -20,7 +20,7 @@ public class Aluno implements Serializable {
 	private Integer id;
 	
 	@NotEmpty(message = "Preenchimento obrigatório")
-	@Length(message = "O nome deve conter no minimo 5 caracteres e um máximo de 80")
+	@Length(min = 5, max = 80, message = "O nome deve conter no minimo 5 caracteres e um máximo de 80")
 	private String nome;
 	
 	@NotNull(message = "Preenchimento obrigatório")
