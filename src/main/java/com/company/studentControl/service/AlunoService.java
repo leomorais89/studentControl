@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.company.studentControl.model.Aluno;
@@ -37,6 +38,14 @@ public class AlunoService {
 		aluno.setNome(upAluno.getNome());
 		aluno.setIdade(upAluno.getIdade());
 		return repo.save(aluno);
+	}
+	
+	public void deleteById(Integer id) {
+		try {
+			repo.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException(e.getMessage());
+		}
 	}
 
 }
